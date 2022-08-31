@@ -9,20 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var appBrain = AppBrain()
+    
     @IBOutlet weak var storyLabel: UILabel!
     @IBOutlet weak var choice1ButtonView: UIButton!
     @IBOutlet weak var choice2ButtonView: UIButton!
     
-    var appBrain = AppBrain()
+    var userChoice: String = "nil"
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         updateUI()
     }
-
-    @IBAction func userResponded(_ sender: UIButton) {
+    
+    @IBAction func choiceMade(_ sender: UIButton) {
         
+        appBrain.NextStory(sender.currentTitle!)
         
+        updateUI()
     }
     
     func updateUI() {
